@@ -46,6 +46,13 @@ public:
      * Вспомогательная функция для конструктора, которая строит шестиугольник по точкам
      */
     static QVector<QPointF> createHexagon(qreal size);
+    /*!
+     * \brief Перекрашивание кликом
+     * \param event Клик мыши
+     *
+     * При клике мыши по шестиугольнику он меняет своё состояние и цвет.
+     */
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
     bool state;

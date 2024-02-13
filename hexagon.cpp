@@ -31,3 +31,9 @@ void Hexagon::setState(bool newState) {
 bool Hexagon::getState() const {
     return state;
 }
+
+
+void Hexagon::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+    this->setState(!(this->getState()));
+    QGraphicsPolygonItem::mousePressEvent(event);
+}

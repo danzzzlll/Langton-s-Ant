@@ -51,6 +51,13 @@ public:
      * \return текущее направление direction
      */
     int getDirection() const;
+    /*!
+     * \brief Установить новое состояние
+     * \param posX Новая координата X
+     * \param posY Новая координата Y
+     * \param direction Новое направление от 0(вверх) до 5(влево-вверх) по часовой стрелке
+     */
+    void setState(int posX, int posY,int direction);
 
 private:
     int x, y;

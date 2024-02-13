@@ -64,3 +64,13 @@ int LangtonAnt::getX() const {
 int LangtonAnt::getY() const {
     return y;
 }
+
+int LangtonAnt::getDirection() const {
+    return direction;
+}
+
+void LangtonAnt::setState(int posX,int posY,int direction){
+    this->direction = direction;
+    this->x = posX;
+    this->y = posY;
+}
