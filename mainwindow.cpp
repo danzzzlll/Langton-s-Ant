@@ -66,6 +66,7 @@ void MainWindow::setupGrid() {
 
     ant = LangtonAnt((gridWidth / 2), (gridHeight / 2), 0);
     antItem = new AntItem(scene, (gridWidth / 2 ), (gridHeight / 2));
+    antItem->updatePosition(ant.getX(), ant.getY());
 }
 
 
