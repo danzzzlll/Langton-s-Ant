@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fileMenu->addAction(tr("Open map"), this, &MainWindow::openMap);
     fileMenu->addAction(tr("Save map"), this, &MainWindow::saveMap);
     ui->menubar->addAction(tr("Start/Pause"), this, &MainWindow::startPause);
+    ui->menubar->addAction(tr("Change speed"), this, &MainWindow::changeSpeed);
 
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
@@ -29,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateLangtonAnt);
-    timer->start(100);
+    timer->start(isFastest?0:100);
 
     this->setCentralWidget(ui->graphicsView);
     this->setContentsMargins(0, 0, 0, 0);
@@ -96,6 +97,11 @@ void MainWindow::updateLangtonAnt() {
 void MainWindow::startPause(){
     isPaused = !isPaused;
     scene->update();
+}
+
+void MainWindow::changeSpeed(){
+    isFastest = !isFastest;
+    timer->setInterval(isFastest?0:100);
 }
 
 void MainWindow::openMap(){

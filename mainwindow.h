@@ -48,6 +48,12 @@ public:
      */
     void startPause();
     /*!
+     * \brief Включение/выключение быстрого режима
+     *
+     * Включает и выключает режим симуляции без задержек.
+     */
+    void changeSpeed();
+    /*!
      * \brief Загрузить состояние из файла
      * \param grid Гексагональная решетка
      * \param ant Муравей Лэнгтона
@@ -71,6 +77,7 @@ private:
     AntItem *antItem;
     QVector<QVector<Hexagon*>> grid; //< Хранение сетки гексагонов
     QTimer *timer;
-    bool isPaused = false;
+    bool isPaused = true;
+    bool isFastest = false;
 };
 #endif // MAINWINDOW_H
